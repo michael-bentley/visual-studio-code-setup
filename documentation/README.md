@@ -9,13 +9,14 @@ Create a directory with an empty README.md file in to hold this information in:
 ```bash
 git init visual-studio-code-setup
 cd visual-studio-code-setup/
-touch README.md
+mkdir documentation
+touch documentation/README.md
 ```
 
 Add the README.md file to the staging area and create the first commit:
 
 ```bash
-git add README.md
+git add .
 git commit -m "Initialise empty repo with README.md"
 ```
 
@@ -28,3 +29,22 @@ git remote add origin https://github.com/michael-bentley/visual-studio-code-setu
 git push -u origin master
 ```
 
+## Configure markdown
+
+Launch VS Code. 
+
+To add linting, quick open using `Ctrl+P`, and install `markdownlint` package:
+
+```
+ext install DavidAnson.vscode-markdownlint
+```
+
+To open markdown side-by-side press `Ctrl+K V`.
+
+To add [GitHub]() markdown styling, quick open using `Ctrl+P`, and install `markdown-preview-github-styles` package:
+
+```
+ext install bierner.markdown-preview-github-styles
+```
+
+Add additional styling using a CSS stylesheet. 
