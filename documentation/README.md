@@ -31,9 +31,7 @@ git push -u origin master
 
 ## Configure markdown
 
-Launch VS Code. 
-
-To add linting, quick open using `Ctrl+P`, and install `markdownlint` package:
+To add linting, quick open using `Ctrl+P`, and install the `markdownlint` package:
 
 ```
 ext install DavidAnson.vscode-markdownlint
@@ -41,10 +39,26 @@ ext install DavidAnson.vscode-markdownlint
 
 To open markdown side-by-side press `Ctrl+K V`.
 
-To add [GitHub]() markdown styling, quick open using `Ctrl+P`, and install `markdown-preview-github-styles` package:
+To add [GitHub]() markdown styling, quick open using `Ctrl+P`, and install the `markdown-preview-github-styles` package:
 
 ```
 ext install bierner.markdown-preview-github-styles
 ```
 
-Add additional styling using a CSS stylesheet. 
+Add additional styling using a CSS stylesheet. Create a `style.css` file:
+
+```bash
+mkdir documentation/css
+touch documentation/css/style.css
+```
+
+Open the `settings.json` file and add:
+
+```
+// Place your settings in this file to overwrite default and user settings.
+{
+    "markdown.styles": [
+        "documentation/style.css"
+    ]
+}
+```
