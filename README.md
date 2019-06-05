@@ -9,8 +9,7 @@ Create a directory with an empty README.md file in to hold this information in:
 ```bash
 git init visual-studio-code-setup
 cd visual-studio-code-setup/
-mkdir documentation
-touch documentation/README.md
+touch README.md
 ```
 
 Add the README.md file to the staging area and create the first commit:
@@ -50,6 +49,7 @@ ext install bierner.markdown-preview-github-styles
 Create a `style.css` file:
 
 ```bash
+mkdir documentation
 mkdir documentation/css
 touch documentation/css/style.css
 ```
