@@ -1,2 +1,5 @@
 {
+    "markdown.styles": [
+        "documentation/css/style.css"
+    ]
 }

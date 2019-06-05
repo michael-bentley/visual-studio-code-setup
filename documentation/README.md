@@ -45,7 +45,9 @@ To add [GitHub]() markdown styling, quick open using `Ctrl+P`, and install the `
 ext install bierner.markdown-preview-github-styles
 ```
 
-Add additional styling using a CSS stylesheet. Create a `style.css` file:
+### Add additional styling using a CSS stylesheet. ###
+
+Create a `style.css` file:
 
 ```bash
 mkdir documentation/css
