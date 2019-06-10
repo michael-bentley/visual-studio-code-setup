@@ -30,6 +30,8 @@ git push -u origin master
 
 ## Configure markdown
 
+To view the markdown file, press `Ctrl+Shift+V`.
+
 To add linting, quick open using `Ctrl+P`, and install the `markdownlint` package:
 
 ```
@@ -60,7 +62,7 @@ Open the `settings.json` file and add:
 // Place your settings in this file to overwrite default and user settings.
 {
     "markdown.styles": [
-        "documentation/style.css"
+        "documentation/css/style.css"
     ]
 }
 ```
