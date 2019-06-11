@@ -103,3 +103,11 @@ Use a specified Python environment with a particular interpreter and installed p
 To select a specific environment, use the **Python: Select Interpreter** command from the **Command Palette** using `Ctrl+Shift+P`.
 
 The status bar at the bottom indicates which Python interpreter is selected. 
+
+### Using virtual environments
+
+The default VS Code Python environment is a global environment. It is tpyically better to create a new virtual environment for each project. A virtual environment is a subfolder in a project that contains a copy of a specific interpreter and any local packages. To create a new virtual environment:
+
+```bash
+python3 -m venv .venv
+```

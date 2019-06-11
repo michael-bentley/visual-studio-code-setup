@@ -2,5 +2,5 @@
     "markdown.styles": [
         "docs/css/style.css"
     ],
-    "python.pythonPath": "/usr/bin/python"
+    "python.pythonPath": ".venv/bin/python"
 }
