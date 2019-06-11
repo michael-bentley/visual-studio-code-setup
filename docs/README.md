@@ -9,14 +9,15 @@ Create a directory with an empty README.md file in to hold this information in:
 ```bash
 git init visual-studio-code-setup
 cd visual-studio-code-setup/
-touch README.md
+mkdir docs
+touch docs/README.md
 ```
 
 Add the README.md file to the staging area and create the first commit:
 
 ```bash
 git add .
-git commit -m "Initialise empty repo with README.md"
+git commit -m "Initialise empty repo with docs/README.md"
 ```
 
 Create a repo on [GitHub]() with the same name and give it a description: 'A repo to record information about setting up Visual Studio Code.'
@@ -46,14 +47,14 @@ To add [GitHub]() markdown styling, quick open using `Ctrl+P`, and install the `
 ext install bierner.markdown-preview-github-styles
 ```
 
-### Add additional styling using a CSS stylesheet. ###
+### Add additional styling using a CSS stylesheet
 
 Create a `style.css` file:
 
 ```bash
-mkdir documentation
-mkdir documentation/css
-touch documentation/css/style.css
+mkdir docs
+mkdir docs/css
+touch docs/css/style.css
 ```
 
 Open the `settings.json` file and add:
@@ -62,7 +63,35 @@ Open the `settings.json` file and add:
 // Place your settings in this file to overwrite default and user settings.
 {
     "markdown.styles": [
-        "documentation/css/style.css"
+        "docs/css/style.css"
     ]
 }
 ```
+
+### Compiling markdown into HTML
+
+It can be useful to convert markdown into HTML. To do this in VS Code, install a [Node.js]() module called [mardown-it](). To install this, we type:
+
+```bash
+npm install -g markdown-it
+```
+
+To use the HTML converter, we can a `task` to the task configuration file `task.json`. To this, we go to **Terminal** > **Configure Tasks** > **Create tasks.json file from templates**. We can then choose one of the template tasks. Here, we want to create an external task, so we select **Others**. We then specify the content of the `tasks.json` as:
+
+```json
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the docs about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile Markdown",
+            "type": "shell",
+            "command": "markdown-it README.md -o README.html",
+            "group": "build"
+        }
+    ]
+}
+```
+
+To create the HTML, we then simply press `Ctrl+Shift+B` to **Run Build Task**. 

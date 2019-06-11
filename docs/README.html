@@ -1,0 +1,60 @@
+<h1>Initial configuration of Visual Studio Code</h1>
+<p>A repo to record information about setting up Visual Studio Code.</p>
+<h2>Record setup configuration using git</h2>
+<p>Create a directory with an empty README.md file in to hold this information in:</p>
+<pre><code class="language-bash">git init visual-studio-code-setup
+cd visual-studio-code-setup/
+touch README.md
+</code></pre>
+<p>Add the README.md file to the staging area and create the first commit:</p>
+<pre><code class="language-bash">git add .
+git commit -m &quot;Initialise empty repo with README.md&quot;
+</code></pre>
+<p>Create a repo on <a href="">GitHub</a> with the same name and give it a description: 'A repo to record information about setting up Visual Studio Code.'</p>
+<p>Add the local directory to <a href="">GitHub</a>:</p>
+<pre><code class="language-bash">git remote add origin https://github.com/michael-bentley/visual-studio-code-setup.git
+git push -u origin master
+</code></pre>
+<h2>Configure markdown</h2>
+<p>To view the markdown file, press <code>Ctrl+Shift+V</code>.</p>
+<p>To add linting, quick open using <code>Ctrl+P</code>, and install the <code>markdownlint</code> package:</p>
+<pre><code>ext install DavidAnson.vscode-markdownlint
+</code></pre>
+<p>To open markdown side-by-side press <code>Ctrl+K V</code>.</p>
+<p>To add <a href="">GitHub</a> markdown styling, quick open using <code>Ctrl+P</code>, and install the <code>markdown-preview-github-styles</code> package:</p>
+<pre><code>ext install bierner.markdown-preview-github-styles
+</code></pre>
+<h3>Add additional styling using a CSS stylesheet</h3>
+<p>Create a <code>style.css</code> file:</p>
+<pre><code class="language-bash">mkdir documentation
+mkdir documentation/css
+touch documentation/css/style.css
+</code></pre>
+<p>Open the <code>settings.json</code> file and add:</p>
+<pre><code>// Place your settings in this file to overwrite default and user settings.
+{
+    &quot;markdown.styles&quot;: [
+        &quot;documentation/css/style.css&quot;
+    ]
+}
+</code></pre>
+<h3>Compiling markdown into HTML</h3>
+<p>It can be useful to convert markdown into HTML. To do this in VS Code, install a <a href="">Node.js</a> module called <a href="">mardown-it</a>. To install this, we type:</p>
+<pre><code class="language-bash">npm install -g markdown-it
+</code></pre>
+<p>To use the HTML converter, we can a <code>task</code> to the task configuration file <code>task.json</code>. To this, we go to <strong>Terminal</strong> &gt; <strong>Configure Tasks</strong> &gt; <strong>Create tasks.json file from templates</strong>. We can then choose one of the template tasks. Here, we want to create an external task, so we select <strong>Others</strong>. We then specify the content of the <code>tasks.json</code> as:</p>
+<pre><code class="language-json">{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    &quot;version&quot;: &quot;2.0.0&quot;,
+    &quot;tasks&quot;: [
+        {
+            &quot;label&quot;: &quot;Compile Markdown&quot;,
+            &quot;type&quot;: &quot;shell&quot;,
+            &quot;command&quot;: &quot;markdown-it README.md -o README.html&quot;,
+            &quot;group&quot;: &quot;build&quot;
+        }
+    ]
+}
+</code></pre>
+<p>To create the HTML, we then simply press <code>Ctrl+Shift+B</code> to <strong>Run Build Task</strong>.</p>
