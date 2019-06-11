@@ -111,3 +111,13 @@ The default VS Code Python environment is a global environment. It is tpyically 
 ```bash
 python3 -m venv .venv
 ```
+
+To use the newly created virtual environment in the terminal (to install new packages, for instance), we activate and deactive it using the commands:
+
+```bash
+source .venv/bin/activate
+deactive
+```
+respectively. When activating a project, the terminal should show (.venv) on the terminal line.
+
+To use the newly created virtual environment in VS Code, reselect the new interpreter using **Python: Select Interpreter** from the **Command Palette** using `Ctrl+Shift+P`. 
