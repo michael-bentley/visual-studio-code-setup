@@ -95,3 +95,11 @@ To use the HTML converter, we can a `task` to the task configuration file `task.
 ```
 
 To create the HTML, we then simply press `Ctrl+Shift+B` to **Run Build Task**. 
+
+## Using Python environments in VS Code
+
+Use a specified Python environment with a particular interpreter and installed packages.
+
+To select a specific environment, use the **Python: Select Interpreter** command from the **Command Palette** using `Ctrl+Shift+P`.
+
+The status bar at the bottom indicates which Python interpreter is selected. 
